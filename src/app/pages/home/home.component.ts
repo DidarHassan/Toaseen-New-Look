@@ -3,6 +3,7 @@ import {  SlidersComponent} from '../../shared/components/sliders/banner/sliders
 import {  CategoryComponent} from '../../shared/components/sliders/category/category.component';
 import {  GridCardComponent} from '../../shared/components/grid-card/grid-card.component';
 import {  TabsComponent} from '../../shared/components/tabs/tabs.component';
+import {  BannerComponent} from '../../shared/components/banner/banner.component';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,8 @@ import {  TabsComponent} from '../../shared/components/tabs/tabs.component';
     SlidersComponent,
     CategoryComponent,
     GridCardComponent,
-    TabsComponent
+    TabsComponent,
+    BannerComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
