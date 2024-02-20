@@ -1,0 +1,38 @@
+<header (scroll)="onScroll()"  [ngClass]="{'shrink': isShrink}">
+  <mat-toolbar class="top-toolbar" >
+    <button
+        type="button" class="menu-btn" mat-icon-button (click)="openMenu()">
+        <mat-icon aria-label="Side nav toggle icon">list</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div class="bg">
+    <div class="container">
+      <mat-toolbar class="toolbar navbar" [class.menuClass]="mobileMenu" attach>
+        <div class="logo">
+            <img routerLink="/home" class="logo-img" src="" alt="Logo">
+        </div>
+        <mat-nav-list class="nav-list">
+          <a mat-list-item class="nav-item">page</a>
+          <a mat-list-item class="nav-item">page</a>
+          <a mat-list-item class="nav-item">page</a>
+          <a mat-list-item class="nav-item">page</a>
+        </mat-nav-list>
+  
+        <div class="icon-btn-group">
+          <button routerLink="/viewAllProduct" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon>search</mat-icon>
+          </button>
+          <button mat-icon-button color="accent" aria-label="Example icon button with a heart icon">
+            <mat-icon>favorite</mat-icon>
+          </button>
+          <button mat-icon-button (click)="openDialog()" color="primary" aria-label="Example icon button with a heart icon">
+            <mat-icon>add_shopping_cart</mat-icon>
+          </button>
+        </div>
+      </mat-toolbar>
+    </div>
+  </div>
+  
+</header>
+  

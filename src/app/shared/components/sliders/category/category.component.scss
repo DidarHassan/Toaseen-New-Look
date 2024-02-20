@@ -1,0 +1,46 @@
+.bannerWrppr {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-image: linear-gradient(330deg, #390049,#9663a8, #d9c9e3,#d9c9e3, );
+
+  .tabCat {
+    .categoryImg {
+      width: 65%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .grid-container {
+    margin: 20px;
+  }
+
+  .dashboard-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    background-color: #f8ebff;
+
+    .mat-mdc-card-header {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+}
+
+
+
+
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
