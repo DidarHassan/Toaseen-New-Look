@@ -1,19 +1,27 @@
-<div class="bannerWrppr">
+<div class="categorisWrppr">
   <div class="container ">
-    <div class="tabCat">
+    <div class="categoris">
       <div class="grid-container">
-        <owl-carousel-o [options]="customOptions">
-          @for (data of category; track data.id) {
+        <owl-carousel-o [options]="category">
+          @for (categoris of (getCategory ); track categoris.id) {
           <ng-template carouselSlide>
             <mat-grid-list cols="2" rowHeight="350px">
               @for (card of cards | async; track card) {
               <mat-grid-tile [colspan]="card.cols" [rowspan]="card.rows">
-                <mat-card class="dashboard-card">
-                  <mat-card-header>
-                    <mat-card-title>Viktor & Rolf Flowerbomb</mat-card-title>
-                  </mat-card-header>
-                  <img class="categoryImg" src="../../../../../assets/5.png" alt="">
-                </mat-card>
+
+                  
+                    <mat-card class="dashboard-card">
+                      <div class="categorisImg">
+                          <mat-card-header>
+                              <mat-card-title>
+                                  {{categoris.name}}
+                              </mat-card-title>
+                          </mat-card-header>
+                          <img class="img" [src]="categoris.imgUrl" alt="">
+                      </div>
+                  </mat-card>
+                
+                
               </mat-grid-tile>
               }
             </mat-grid-list>

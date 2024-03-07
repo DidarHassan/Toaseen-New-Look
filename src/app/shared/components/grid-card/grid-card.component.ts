@@ -7,6 +7,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-grid-card',
@@ -19,7 +21,8 @@ import { MatCardModule } from '@angular/material/card';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    RouterModule
   ]
 })
 export class GridCardComponent {
@@ -30,11 +33,11 @@ export class GridCardComponent {
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 },
-          { title: 'Card 5', cols: 1, rows: 1 },
+          { title: 'Card 1', cols: 3, rows: 1 },
+          { title: 'Card 2', cols: 3, rows: 1 },
+          { title: 'Card 3', cols: 3, rows: 1 },
+          { title: 'Card 4', cols: 3, rows: 1 },
+          { title: 'Card 5', cols: 3, rows: 1 },
         ];
       }
 

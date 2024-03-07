@@ -4,6 +4,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {CommonModule} from '@angular/common'
+import { Route , RouterLink , RouterModule } from '@angular/router';
 
 
 @Component({
@@ -15,6 +16,7 @@ import {CommonModule} from '@angular/common'
     MatToolbarModule,
     MatListModule,
     CommonModule,
+    RouterModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',

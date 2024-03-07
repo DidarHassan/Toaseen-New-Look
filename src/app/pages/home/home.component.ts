@@ -4,6 +4,13 @@ import {  CategoryComponent} from '../../shared/components/sliders/category/cate
 import {  GridCardComponent} from '../../shared/components/grid-card/grid-card.component';
 import {  TabsComponent} from '../../shared/components/tabs/tabs.component';
 import {  BannerComponent} from '../../shared/components/banner/banner.component';
+import {  RecommendedProductsComponent} from '../../shared/components/sliders/recommended-products/recommended-products.component';
+import {  FooterComponent} from '../../shared/components/layout/footer/footer.component';
+
+
+
+
+
 
 @Component({
   selector: 'app-home',
@@ -13,7 +20,9 @@ import {  BannerComponent} from '../../shared/components/banner/banner.component
     CategoryComponent,
     GridCardComponent,
     TabsComponent,
-    BannerComponent
+    BannerComponent,
+    RecommendedProductsComponent,
+    FooterComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

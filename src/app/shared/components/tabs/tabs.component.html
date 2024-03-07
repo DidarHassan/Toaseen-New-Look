@@ -1,38 +1,126 @@
 <div class="tabWrppr">
     <div class="container">
         <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
-            <mat-tab label="First" value="warn">
+            <mat-tab label="Gourmand Delight" value="warn">
                 <div class="grid-container">
                     <mat-grid-list cols="4" rowHeight="400px">
-                        @for (tab of tabsItems; track tab.id) {
+                        @for ( product of (products | products: 'Gourmand Delight':'categoryName') ; track product.id )
+                        {
                         <div class="row tabsItem">
-                            @for (card of cards | async; track card) {
-                                <mat-grid-tile [colspan]="card.cols" [rowspan]="card.rows">
-                                    <mat-card class="dashboard-card">
-                                        <div class="tabsImg">
-                                            <mat-card-header>
-                                                <mat-card-title>
-                                                    product
-                                                    {{tabsItems.title}}
-                                                </mat-card-title>
-                                            </mat-card-header>
-                                            <img class="img" src="../../../../assets/6.png" alt="">
+                            @for (card of cards | async; track card ) {
+                            <mat-grid-tile [colspan]="card.cols" [rowspan]="card.rows">
+                                
+                                <div class="cardWppr dashboard-card">
+                                    <div class="tabsImg">
+                                        <mat-card-header>
+                                            <mat-card-title>
+                                                <a routerLink="/details/ {{product.id}}"> {{product.name}}</a>
+                                            </mat-card-title>
+                                        </mat-card-header>
+                                        <div class="img">
+                                            <swiper-container navigation="true">
+                                                @for (images of (imagesGet | products: 'Gourmand Delight':'categoryName'); track images.id) {
+                                                <swiper-slide>
+                                                    <img [src]="images.image_url" alt="">
+                                                </swiper-slide>
+                                            }
+                                            </swiper-container>
                                         </div>
-                                        <mat-card-actions class="dashboard-card-content">
-                                            <div>
-                                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis, nostrum!</p>
-                                            </div>
-                                        </mat-card-actions>
-                                    </mat-card>
-                                </mat-grid-tile>
-                                }
+                                    </div>
+                                    <mat-card-actions class="dashboard-card-content">
+                                        <div>
+                                            <p>{{product.description}}</p>
+                                        </div>
+                                    </mat-card-actions>
+                                </div>
+                            </mat-grid-tile>
+                            }
                         </div>
-                    }
+                        }
                     </mat-grid-list>
                 </div>
             </mat-tab>
-            <mat-tab label="Second">Content 2</mat-tab>
-            <mat-tab label="Third">Content 3</mat-tab>
+
+            <mat-tab label="Light Rose" value="warn">
+                <div class="grid-container">
+                    <mat-grid-list cols="4" rowHeight="400px">
+                        @for( product of (products | products: 'Light Rose':'categoryName') ; track product.id ) {
+                        <div class="row tabsItem">
+                            @for (card of cards | async; track card ) {
+                                <mat-grid-tile [colspan]="card.cols" [rowspan]="card.rows">
+                                
+                                    <div class="cardWppr dashboard-card">
+                                        <div class="tabsImg">
+                                            <mat-card-header>
+                                                <mat-card-title>
+                                                    <a routerLink="/details/ {{product.id}}"> {{product.name}}</a>
+                                                </mat-card-title>
+                                            </mat-card-header>
+                                            <div class="img">
+                                                <swiper-container navigation="true">
+                                                    @for (images of (imagesGet | products: 'Rose fragrance':'imageCategorys'); track images.id) {
+                                                    <swiper-slide>
+                                                        <img [src]="images.image_url" alt="">
+                                                    </swiper-slide>
+                                                }
+                                                </swiper-container>
+                                            </div>
+                                        </div>
+                                        <mat-card-actions class="dashboard-card-content">
+                                            <div>
+                                                <p>{{product.description}}</p>
+                                            </div>
+    
+                                        </mat-card-actions>
+                                        
+                                    </div>
+                                </mat-grid-tile>
+                            }
+                        </div>
+                        }
+                    </mat-grid-list>
+                </div>
+            </mat-tab>
+
+            <mat-tab label="Red Rose" value="warn">
+                <div class="grid-container">
+                    <mat-grid-list cols="4" rowHeight="400px">
+                        @for ( product of (products | products: 'Red Rose':'categoryName') ; track product.id ) {
+                        <div class="row tabsItem">
+                            @for (card of cards | async; track card ) {
+                                <mat-grid-tile [colspan]="card.cols" [rowspan]="card.rows">
+                                
+                                    <div class="cardWppr dashboard-card">
+                                        <div class="tabsImg">
+                                            <mat-card-header>
+                                                <mat-card-title>
+                                                    <a routerLink="/details/ {{product.id}}"> {{product.name}}</a>
+                                                </mat-card-title>
+                                            </mat-card-header>
+                                            <div class="img">
+                                                <swiper-container navigation="true">
+                                                    @for (images of (imagesGet | products: 'Rose fragrance':'imageCategorys'); track images.id) {
+                                                    <swiper-slide>
+                                                        <img [src]="images.image_url" alt="">
+                                                    </swiper-slide>
+                                                }
+                                                </swiper-container>
+                                            </div>
+                                        </div>
+                                        <mat-card-actions class="dashboard-card-content">
+                                            <div>
+                                                <p>{{product.description}}</p>
+                                            </div>
+                                        </mat-card-actions>
+                                    </div>
+
+                                </mat-grid-tile>
+                            }
+                        </div>
+                        }
+                    </mat-grid-list>
+                </div>
+            </mat-tab>
         </mat-tab-group>
     </div>
 </div>

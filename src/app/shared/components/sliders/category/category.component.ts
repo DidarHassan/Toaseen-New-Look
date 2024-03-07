@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
 import { AsyncPipe } from '@angular/common';
@@ -9,6 +9,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs'
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { CategoryService } from '../../../../core/services/category.service';
+import { RouterModule} from '@angular/router';
+import {} from '../../../../core/interface/product'
+
+
+
+
+
 
 @Component({
   selector: 'app-category',
@@ -23,18 +31,28 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
     MatButtonModule,
     MatCardModule,
     MatTabsModule,
-    CarouselModule
+    CarouselModule,
+    RouterModule
+
   ]
 })
-export class CategoryComponent {
+export class CategoryComponent implements OnInit {
+  ngOnInit(): void {
+    this.getCate();
+  }
+  private categoryhttp = inject(CategoryService)
   private breakpointObserver = inject(BreakpointObserver);
+
+
+  getCategory: any;
+  products: any;
 
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Card 1', cols: 1, rows: 1 },
+          { title: 'Card 1', cols: 2, rows: 1 },
 
         ];
       }
@@ -46,8 +64,7 @@ export class CategoryComponent {
     })
   );
 
-
-  customOptions: OwlOptions = {
+  category: OwlOptions = {
     loop: true,
     mouseDrag: true,
     touchDrag: true,
@@ -72,32 +89,20 @@ export class CategoryComponent {
       }
     },
   }
-
-  category: any = [
-    {
-      title: 'didar',
-      name: 'hassan'
-    },
-    {
-      title: 'didar',
-      name: 'hassan'
-    },
-    {
-      title: 'didar',
-      name: 'hassan'
-    },
-    {
-      title: 'didar',
-      name: 'hassan'
-    },
-    {
-      title: 'didar',
-      name: 'hassan'
-    },
-    {
-      title: 'didar',
-      name: 'hassan'
+ 
+ getCate(){
+  this.categoryhttp.cateGet().subscribe({
+    next: (getCategory : any) =>{
+      this.getCategory = getCategory
     }
-    
-  ]
+  })
+}
+// getProducts(){
+//   this.productshttp.productsGet().subscribe({
+//     next: (products: any) => {
+//       this.products = products;
+//     }
+//   })
+// }
+
 }

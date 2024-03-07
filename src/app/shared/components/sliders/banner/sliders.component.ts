@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { map } from 'rxjs/operators';
@@ -8,6 +8,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { BannerSliderService } from '../../../../core/services/banner-slider.service';
 @Component({
   selector: 'app-sliders',
   standalone: true,
@@ -23,17 +24,17 @@ import { MatCardModule } from '@angular/material/card';
   templateUrl: './sliders.component.html',
   styleUrl: './sliders.component.scss'
 })
-export class SlidersComponent {
-  private breakpointObserver = inject(BreakpointObserver);
+export class SlidersComponent implements OnInit {
 
-  datas: any =[
-    {
-      title: 'name',
-      dec:'asdfghjjjjjj'
+  private bannerService = inject(BannerSliderService)
 
-    },
+  bannerSliders : any;
 
-  ]
+
+
+  ngOnInit(): void {
+    this.getSlider();
+  }
 
   customOptions: OwlOptions = {
     loop: true,
@@ -43,7 +44,7 @@ export class SlidersComponent {
     autoplay: true,
     autoplayTimeout: 7500,
     dots: false,
-    autoplaySpeed:1000,
+    autoplaySpeed:500,
     navText: ['', ''],
     responsive: {
       0: {
@@ -60,6 +61,13 @@ export class SlidersComponent {
       }
     },
     
+  }
+
+
+  getSlider(){
+    this.bannerService.bannerSliderGet().subscribe((res) =>{
+      this.bannerSliders = res;
+    })
   }
 
 }
